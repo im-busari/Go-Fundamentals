@@ -2,13 +2,14 @@ package main
 
 import "fmt"
 
-const frenchLanguage = "fr";
-const spanishLanguage = "es";
+const (
+	frenchLanguage = "fr";
+	spanishLanguage = "es";
 
-
-const englishHelloPrefix = "Hello, ";
-const spanishHelloPrefix = "Hola, ";
-const frenchHelloPrefix = "Bonjour, ";
+	englishHelloPrefix = "Hello, ";
+	spanishHelloPrefix = "Hola, ";
+	frenchHelloPrefix = "Bonjour, ";
+)
 
 func Hello(name, language string) string {
 
@@ -16,15 +17,23 @@ func Hello(name, language string) string {
 		name = "World";
 	}
 
-	if language == spanishLanguage {
-		return spanishHelloPrefix + name + "!";
+	return greetingPrefix(language) + name + "!";
+}
+
+// different ways to handle return in Go
+// 1. return prefix;
+// 2. return;
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+	case frenchLanguage:
+		return frenchHelloPrefix;
+	case spanishLanguage:
+		return spanishHelloPrefix;
+	default:
+		prefix = englishHelloPrefix;
 	}
 
-	if language == frenchLanguage {
-		return frenchHelloPrefix + name + "!";
-	}
-
-	return englishHelloPrefix + name + "!";
+	return;
 }
 
 func main() {
