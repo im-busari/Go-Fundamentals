@@ -1,1 +1,2 @@
-Something here
+Learning path:
+https://quii.gitbook.io/learn-go-with-tests
