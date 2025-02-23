@@ -21,7 +21,7 @@ func Hello(name, language string) string {
 }
 
 // different ways to handle return in Go
-// 1. return prefix;
+// 1. prefix - named return value
 // 2. return;
 func greetingPrefix(language string) (prefix string) {
 	switch language {
@@ -35,6 +35,8 @@ func greetingPrefix(language string) (prefix string) {
 
 	return;
 }
+
+// public functions start with CapitalLetter and private functions with lowercaseLetter
 
 func main() {
 	fmt.Println(Hello("Chris", "en"));
